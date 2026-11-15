@@ -14,8 +14,8 @@ app.use('/api', require('./src/routes/auth'));              // US001, US002
 app.use('/api/subjects', require('./src/routes/subjects')); // list only, used by US002
 app.use('/api', (req, res) => res.status(404).json({ error: 'Not found.' }));
 
-// Frontend (HTML + JS) is served from /public
-app.use(express.static(path.join(__dirname, 'public')));
+// Frontend (HTML + JS) lives in ../frontend and is served from here
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 // Last-resort error handler
 app.use((err, req, res, next) => {
